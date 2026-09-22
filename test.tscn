@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://m33iw5pwrx84"]
+
+[ext_resource type="PackedScene" uid="uid://b0euxfndytgmg" path="res://player.tscn" id="1_37kl0"]
+[ext_resource type="Script" uid="uid://d4hwsy3rju1ed" path="res://scripts/Player.cs" id="2_player"]
+[ext_resource type="Script" uid="uid://cowbxw1ydp5np" path="res://scripts/Camera3d.cs" id="3_camera"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8t7ot"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8t7ot"]
+size = Vector3(138, 0.2, 138)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4barl"]
+
+[node name="Node3D" type="Node3D" unique_id=1719919004]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1331792392]
+transform = Transform3D(69.055, 0, 0, 0, 69.055, 0, 0, 0, 69.055, 0, 0, 0)
+mesh = SubResource("PlaneMesh_8t7ot")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=2071628488]
+transform = Transform3D(0.01448121, 0, 0, 0, 0.01448121, 0, 0, 0, 0.01448121, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1337229512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_8t7ot")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=237066052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8086, 0)
+lock_rotation = true
+script = ExtResource("2_player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1240437260]
+shape = SubResource("CapsuleShape3D_4barl")
+
+[node name="Player" parent="RigidBody3D" unique_id=962531960 instance=ExtResource("1_37kl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.074082136, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1592486869]
+transform = Transform3D(1, 0, 0, 0, 0.80136263, 0.5981789, 0, -0.5981789, 0.80136263, 0, 6.7821484, 5.9055037)
+fov = 96.2
+script = ExtResource("3_camera")
+MouseSensitivity = 0.001
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1562695136]
+transform = Transform3D(1, 0, 0, 0, -0.50137, 0.86523294, 0, -0.86523294, -0.50137, 0, 21.309061, -32.028954)
+shadow_enabled = true
