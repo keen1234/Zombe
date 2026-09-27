@@ -60,9 +60,11 @@ public partial class Camera3d : Camera3D
 		else if (@event is InputEventMouseMotion mouseMotion &&
 			Input.MouseMode == Input.MouseModeEnum.Captured)
 		{
-			_yaw -= mouseMotion.Relative.X * MouseSensitivity;
+			// ScreenRelative keeps mouse look consistent when viewport stretching is enabled.
+			var mouseDelta = mouseMotion.ScreenRelative;
+			_yaw -= mouseDelta.X * MouseSensitivity;
 			_pitch = Mathf.Clamp(
-				_pitch + mouseMotion.Relative.Y * MouseSensitivity,
+				_pitch + mouseDelta.Y * MouseSensitivity,
 				MinimumPitch,
 				MaximumPitch);
 		}

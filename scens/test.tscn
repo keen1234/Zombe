@@ -54,7 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.074082136, 0)
 transform = Transform3D(1, 0, 0, 0, 0.80136263, 0.5981789, 0, -0.5981789, 0.80136263, 0, 6.7821484, 5.9055037)
 fov = 96.2
 script = ExtResource("3_camera")
-MouseSensitivity = 0.001
+MouseSensitivity = 0.003
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1562695136]
 transform = Transform3D(1, 0, 0, 0, -0.50137, 0.86523294, 0, -0.86523294, -0.50137, 0, 21.309061, -32.028954)
