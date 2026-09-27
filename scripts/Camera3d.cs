@@ -62,7 +62,7 @@ public partial class Camera3d : Camera3D
 		{
 			_yaw -= mouseMotion.Relative.X * MouseSensitivity;
 			_pitch = Mathf.Clamp(
-				_pitch - mouseMotion.Relative.Y * MouseSensitivity,
+				_pitch + mouseMotion.Relative.Y * MouseSensitivity,
 				MinimumPitch,
 				MaximumPitch);
 		}
